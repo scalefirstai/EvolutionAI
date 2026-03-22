@@ -14,7 +14,7 @@ jobs:
       run:
         working-directory: output/java
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -36,7 +36,7 @@ jobs:
       run:
         working-directory: dashboard
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -50,7 +50,7 @@ jobs:
     name: Lint OpenAPI Specs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -61,7 +61,7 @@ jobs:
     name: Docker Build Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Build dashboard image
         run: docker build -t evolutionai-dashboard ./dashboard
       - name: Build metrics exporter image
@@ -76,7 +76,7 @@ jobs:
       run:
         working-directory: output/java
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -103,7 +103,7 @@ jobs:
     name: Security Scan
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Trivy filesystem scan
         uses: aquasecurity/trivy-action@master
         with:
@@ -121,7 +121,7 @@ jobs:
     name: Skills Validation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Validate skill directory structure
         run: |
           EXIT_CODE=0
@@ -151,7 +151,7 @@ jobs:
     name: Hook Linting
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install shellcheck
         run: sudo apt-get install -y shellcheck
       - name: Run shellcheck on hook and skill scripts
