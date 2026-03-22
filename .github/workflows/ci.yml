@@ -24,7 +24,7 @@ jobs:
         run: ./mvnw verify -B
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: java-test-results
           path: output/java/target/surefire-reports/
@@ -94,7 +94,7 @@ jobs:
           fi
       - name: Upload JaCoCo report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: jacoco-report
           path: output/java/target/site/jacoco/
